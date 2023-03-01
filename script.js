@@ -1,5 +1,5 @@
 
-// Global passengers map for test
+// Global passengers map for testt
 const passengerMap = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
