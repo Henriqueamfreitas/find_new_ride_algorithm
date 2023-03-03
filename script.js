@@ -52,9 +52,6 @@ function findNewRide(driverPositionX, driverPositionY) {
         }
         arrayDistanciaTotal = arrayDistanciaTotal.concat(array)
         arrayDistanciaTotal = arrayDistanciaTotal.concat(array2)
-    // console.log(array)
-    // console.log(array2)
-    // Achando o passageiro mais próximo
     let DistanceClosestPassenger = Math.min(...arrayDistanciaTotal)
     // Formatando os dados para a resposta final
     let finalAnswer =[]
