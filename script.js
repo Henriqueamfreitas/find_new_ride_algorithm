@@ -25,12 +25,9 @@ const passengerMap = [
 // Descobrindo onde tem passageiros
 
 function findNewRide(driverPositionX, driverPositionY) {
-    // Nomeando as variáveis
-    let elementDriverPositionX = passengerMap[driverPositionX] // "Selecinou a linha da matriz, que começa em 0"
-    let elementDriverPositionY = elementDriverPositionX[driverPositionY] //"Selecionou a coluna da matriz q começa em 0"
-    let driverPosition = [elementDriverPositionX,elementDriverPositionY] // Colocou num array a posição a ser localizada
+    // Naming the variables
     let passengerPosition = []
-    // Achando a posição do passageiro
+    // Finding the passenger's position
     for (j=0; j<passengerMap.length; j+=1){
         for (let i=0;i<passengerMap[j].length; i+=1){
             if(passengerMap[j][i] === 1){
@@ -39,27 +36,37 @@ function findNewRide(driverPositionX, driverPositionY) {
             }
         }
     }
-    // Calculando a diferença entre os eixos e achando a distância total em módulo
+    // Calculating the difference between the axes
     let arrayDistanciaTotal = []
+    let array = []
+    let array2 = []
     let distanciaEixoX = 0
     let distanciaEixoY = 0
     for (j=0;j<passengerPosition.length;j+=1){
             distanciaEixoX = Math.abs(passengerPosition[j][0] - driverPositionX)
             distanciaEixoY = Math.abs(passengerPosition[j][1] - driverPositionY)
             let distanciaTotal = distanciaEixoX + distanciaEixoY
-            let array = [distanciaTotal]
-            arrayDistanciaTotal = arrayDistanciaTotal.concat([array])  
+            let distanciaPitagorica = ((distanciaEixoX)**2 + (distanciaEixoY)**2)**(1/2) 
+            array = array.concat([distanciaTotal.toFixed(2)])
+            array2 = array2.concat([distanciaPitagorica.toFixed(2)])
         }
+        arrayDistanciaTotal = arrayDistanciaTotal.concat(array)
+        arrayDistanciaTotal = arrayDistanciaTotal.concat(array2)
+    // console.log(array)
+    // console.log(array2)
     // Achando o passageiro mais próximo
     let DistanceClosestPassenger = Math.min(...arrayDistanciaTotal)
     // Formatando os dados para a resposta final
     let finalAnswer =[]
     for (let i=0; i<arrayDistanciaTotal.length;i+=1){
-        if(arrayDistanciaTotal[i] == DistanceClosestPassenger){
+        if((arrayDistanciaTotal[i] == DistanceClosestPassenger) && (i<5)){
             finalAnswer = [passengerPosition[i], `${DistanceClosestPassenger.toFixed(2)} km`]
+            return finalAnswer
+        } else if((arrayDistanciaTotal[i] == DistanceClosestPassenger) && (i>=5)){
+            finalAnswer = [passengerPosition[i-5], `${DistanceClosestPassenger.toFixed(2)} km`]
+            return finalAnswer
         }
     }
-    return finalAnswer
 }
 
 
