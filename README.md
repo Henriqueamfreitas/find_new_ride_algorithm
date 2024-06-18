@@ -16,3 +16,5 @@ Caso os testes sejam aprovados, eles serão apresentados na cor verde precedidos
 palavra FAIL. Em ambos os casos, indica quais as coordenadas do motorista foram testadas em cada caso.
 
 A distância a ser calculada na primeira versão é a mais simples, em linha reta, também conhecida como distância euclidiana, que segue o mesmo princípio do teorema de pitágoras.
+
+**Tecnologias**: Javacript e Shell
